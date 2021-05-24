@@ -1,24 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <style>
-        .header{
-            text-align:center;
-        }
-        .footer{
-            text-align:center;
-            position:absolute;
-            bottom:0;
-            width:100%;
-            background-color:#eee;
-        }
-    </style>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="~/Scripts/jquery-3.6.0.min.js" ></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
 </head>
-<body>
-    @RenderPage("_Header.cshtml")
-    @RenderBody()
-    @RenderPage("_Footer.cshtml")
+<body>  
+    <div class="container body-content">
+        @RenderPage("_Header.cshtml")
+        @RenderBody()
+        @RenderPage("_Footer.cshtml")
+    </div>
+    
 </body>
 </html>
