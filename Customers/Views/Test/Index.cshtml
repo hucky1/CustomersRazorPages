@@ -1,0 +1,70 @@
+﻿@model List<Customers.Models.UserModel>
+
+@{
+    ViewBag.Title = "Amazing app";
+    Layout = "~/Views/Shared/_MyDefaultLayout.cshtml" ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <style>
+        .label1{
+            font-size:36px;
+            color:chocolate;
+            font-family:Arial;
+            font-weight:bold;
+            display:block;
+        }
+        #label2 {
+            font-size: 20px;
+            color: cornflowerblue;
+        }
+        table{
+            font-family: Arial,sans-serif;
+            border-collapse:collapse;
+            width:100%;
+        }
+        td,th{
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even){
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        <h2>Amazing new story!!!</h2>
+        <p>You won't believe your eyes. This site will become the most viewed page on the internet if everything goes well!</p>
+        @Html.Label("Welcome!", new { @class="label1"})
+        @Html.Label("lalalalalalal", new { @class = "label1",@id="label2" })
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(name => x.Name)</td>
+            <td>@Html.DisplayFor(email => x.EmailAdress)</td>
+            <td>@Html.DisplayFor(phone=> x.PhoneNumber)</td>
+            @*<td>@x.EmailAdress</td>
+            <td>@x.PhoneNumber</td>*@
+        </tr>   
+        }
+        
+    </table>
+
+        @Html.ActionLink("Refresh this page","../test")
+    </div>
+</body>
+</html>
