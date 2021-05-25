@@ -5,40 +5,52 @@
     Layout = "~/Views/Shared/_MyDefaultLayout.cshtml" ;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>View</title>
-</head>
-<body>
-    <div> 
-        <h2>Amazing new story!!!</h2>
-        <p>You won't believe your eyes. This site will become the most viewed page on the internet if everything goes well!</p>
-        @Html.Label("Welcome!", new { @class="label1"})
-        @Html.Label("lalalalalalal", new { @class = "label1",@id="label2" })
+<div>
+    <h2>Amazing new story!!!</h2>
+    <p>You won't believe your eyes. This site will become the most viewed page on the internet if everything goes well!</p>
+    @Html.Label("Welcome!", new { @class = "label1" })
+    @Html.Label("lalalalalalal", new { @class = "label1", @id = "label2" })
     <table border="1">
         <tr>
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
         </tr>
-        
+
         @foreach (var x in Model)
         {
-        <tr>
-            <td>@Html.DisplayFor(name => x.Name)</td>
-            <td>@Html.DisplayFor(email => x.EmailAdress)</td>
-            <td>@Html.DisplayFor(phone=> x.PhoneNumber)</td>
-            @*<td>@x.EmailAdress</td>
-            <td>@x.PhoneNumber</td>*@
-        </tr>   
+            <tr>
+                <td>@Html.DisplayFor(name => x.Name)</td>
+                <td>@Html.DisplayFor(email => x.EmailAdress)</td>
+                <td>@Html.DisplayFor(phone => x.PhoneNumber)</td>
+                @*<td>@x.EmailAdress</td>
+                    <td>@x.PhoneNumber</td>*@
+            </tr>
+
         }
-        
+
     </table>
 
-        @Html.ActionLink("Refresh this page","../test")
+    <div class="flex-container">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="card m-4" style="width: 18rem;">
+                <img src="https://i.pravatar.cc/120?img=@i" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(name => Model[i].Name)</h5>
+                    <p class="card-text">
+                        @Html.DisplayFor(email => Model[i].EmailAdress)<br>
+                        Some quick example text to build on the card title and make up the bulk of the card's content.
+                    </p>
+                    <a href="#" class="btn btn-primary">@Html.DisplayFor(phone => Model[i].PhoneNumber)<br> Go somewhere</a>
+                </div>
+            </div>
+        }
     </div>
-</body>
-</html>
+   
+
+
+
+    @Html.ActionLink("Refresh this page", "../test")
+</div>
+

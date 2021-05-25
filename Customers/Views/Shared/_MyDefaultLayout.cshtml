@@ -8,12 +8,14 @@
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
 </head>
-<body>  
+<body>
+    @RenderPage("_Header.cshtml")
     <div class="container body-content">
-        @RenderPage("_Header.cshtml")
+
         @RenderBody()
-        @RenderPage("_Footer.cshtml")
+
     </div>
-    
+    @RenderPage("_Footer.cshtml")
 </body>
 </html>
+    

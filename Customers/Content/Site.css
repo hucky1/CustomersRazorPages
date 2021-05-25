@@ -1,11 +1,18 @@
-﻿.header {
+﻿.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.header {
     text-align: center;
+    color: red;
+    background-color:aqua;
 }
 
 .footer {
     text-align: center;
-    position: absolute;
-    bottom: 0;
+
     width: 100%;
     background-color: #eee;
 }
